@@ -4,7 +4,6 @@
  * Quando o vídeo estiver publicado, defina o ID abaixo.
  * O ID é a parte final da URL: youtube.com/watch?v=ESTE_ID
  */
-const YOUTUBE_CONVERSION_VIDEO_ID = "";
 
 /**
  * Automação de WhatsApp e Grupo VIP
@@ -14,29 +13,6 @@ const YOUTUBE_CONVERSION_VIDEO_ID = "";
 const WEBHOOK_URL = ""; // Link do Make, Zapier ou API de WhatsApp
 const WHATSAPP_GROUP_LINK = "https://chat.whatsapp.com/SEU_LINK_AQUI";
 
-function initConversionVideo() {
-  const shell = document.querySelector("[data-conversion-video]");
-  if (!shell) return;
-
-  const placeholder = shell.querySelector(".video-placeholder");
-  const id = YOUTUBE_CONVERSION_VIDEO_ID.trim();
-
-  if (id && placeholder) {
-    placeholder.remove();
-    const iframe = document.createElement("iframe");
-    iframe.setAttribute(
-      "src",
-      `https://www.youtube-nocookie.com/embed/${id}?rel=0&modestbranding=1`
-    );
-    iframe.setAttribute("title", "Vídeo do curso");
-    iframe.setAttribute("allowfullscreen", "");
-    iframe.setAttribute(
-      "allow",
-      "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    );
-    shell.appendChild(iframe);
-  }
-}
 
 function initVipForm() {
   const modal = document.getElementById("vip-modal");
@@ -126,6 +102,5 @@ function initVipForm() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  initConversionVideo();
   initVipForm();
 });
