@@ -864,6 +864,73 @@ a:hover {
   max-height: 90vh;
   overflow-y: auto;
 }
+
+/* Questionnaire Styles */
+.form-card .field label {
+  font-size: 0.95rem;
+  color: var(--text);
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.option-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.custom-option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, transform 0.1s;
+}
+
+.custom-option:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--accent-2);
+}
+
+.custom-option input {
+  width: 18px !important;
+  height: 18px !important;
+  margin: 0 !important;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.custom-option span {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.custom-option input:checked + span {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* Progress indicator */
+.form-progress {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 99px;
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+.form-progress-bar {
+  height: 100%;
+  background: var(--accent);
+  width: 0%;
+  transition: width 0.4s ease;
+}
 .form-card h3 {
   margin: 0 0 0.5rem;
   font-family: var(--font-display);

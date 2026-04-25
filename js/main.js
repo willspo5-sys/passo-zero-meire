@@ -63,11 +63,21 @@ function initVipForm() {
     const btn = form.querySelector('button[type="submit"]');
     const originalBtnText = btn.textContent;
     const formData = new FormData(form);
+    
+    // Coleta todos os dados do formulário
     const data = {
       nome: formData.get("nome"),
       whatsapp: formData.get("whatsapp"),
+      profissao: formData.get("profissao"),
+      experiencia: formData.get("experiencia"),
+      desafio_principal: formData.get("desafio_principal"),
+      objetivo: formData.get("objetivo"),
+      cliente_ideal: formData.getAll("cliente_ideal"), // Captura múltiplos checkboxes
+      renda: formData.get("renda"),
+      onde_aprende: formData.getAll("onde_aprende"), // Captura múltiplos checkboxes
+      como_conheceu: formData.get("como_conheceu"),
       origem: window.location.href,
-      data: new Date().toISOString(),
+      data_registro: new Date().toISOString(),
     };
 
     // Feedback visual (Loading)
@@ -84,9 +94,8 @@ function initVipForm() {
           body: JSON.stringify(data),
         });
       } else {
-        console.log("Simulação: Lead capturado localmente", data);
-        // Pequeno delay para simular processamento se não houver URL
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+        console.log("Lead Capturado (Simulação):", data);
+        await new Promise((resolve) => setTimeout(resolve, 1500));
       }
 
       // 2. Redirecionar para o Grupo VIP
