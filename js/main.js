@@ -90,6 +90,7 @@ function initVipForm() {
       if (WEBHOOK_URL) {
         await fetch(WEBHOOK_URL, {
           method: "POST",
+          mode: "no-cors", // Necessário para evitar erros de CORS com Google Apps Script
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(data),
         });
