@@ -10,7 +10,7 @@
  * ---------------------------------
  * Configure os links abaixo para ativar a automação.
  */
-const WEBHOOK_URL = ""; // Link do Make, Zapier ou API de WhatsApp
+const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbxEiw45IUq0jyKDUbsYbd4mkoMNSKFVjotNNPmyJywxVhlSG9AU24_t9N5ZZ-EPzc48WA/exec";
 const WHATSAPP_GROUP_LINK = "https://chat.whatsapp.com/SEU_LINK_AQUI";
 
 
