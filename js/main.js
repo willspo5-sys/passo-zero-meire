@@ -10,7 +10,7 @@
  * ---------------------------------
  * Configure os links abaixo para ativar a automação.
  */
-const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbxEiw45IUq0jyKDUbsYbd4mkoMNSKFVjotNNPmyJywxVhlSG9AU24_t9N5ZZ-EPzc48WA/exec";
+const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbyUFMrUNTG8LqR1Qz78lkfdRDrv9l1WjdR_onxbuuzHCELHwopuQJDvawdZMkRxxedlMQ/exec";
 const WHATSAPP_GROUP_LINK = "https://chat.whatsapp.com/SEU_LINK_AQUI";
 
 
@@ -64,21 +64,23 @@ function initVipForm() {
     const originalBtnText = btn.textContent;
     const formData = new FormData(form);
     
-    // Coleta todos os dados do formulário
+    // Coleta todos os dados do formulário de forma dinâmica
     const data = {
-      nome: formData.get("nome"),
-      whatsapp: formData.get("whatsapp"),
-      profissao: formData.get("profissao"),
-      experiencia: formData.get("experiencia"),
-      desafio_principal: formData.get("desafio_principal"),
-      objetivo: formData.get("objetivo"),
-      cliente_ideal: formData.getAll("cliente_ideal"), // Captura múltiplos checkboxes
-      renda: formData.get("renda"),
-      onde_aprende: formData.getAll("onde_aprende"), // Captura múltiplos checkboxes
-      como_conheceu: formData.get("como_conheceu"),
       origem: window.location.href,
       data_registro: new Date().toISOString(),
     };
+    
+    for (let [key, value] of formData.entries()) {
+      // Se já existe a chave (múltiplos checkboxes), transforma em array
+      if (data[key]) {
+        if (!Array.isArray(data[key])) {
+          data[key] = [data[key]];
+        }
+        data[key].push(value);
+      } else {
+        data[key] = value;
+      }
+    }
 
     // Feedback visual (Loading)
     btn.disabled = true;
