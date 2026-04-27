@@ -101,8 +101,10 @@ function initVipForm() {
         await new Promise((resolve) => setTimeout(resolve, 1500));
       }
 
-      // 2. Redirecionar para o Grupo VIP
-      window.location.href = WHATSAPP_GROUP_LINK;
+      // 2. Redirecionar para a Página de Obrigado
+      const redirectUrl = new URL('obrigado.html', window.location.href);
+      redirectUrl.searchParams.set('group', WHATSAPP_GROUP_LINK);
+      window.location.href = redirectUrl.toString();
     } catch (error) {
       console.error("Erro na automação:", error);
       alert("Houve um erro ao processar sua inscrição. Tente novamente.");
