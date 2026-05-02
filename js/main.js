@@ -11,7 +11,7 @@
  * Configure os links abaixo para ativar a automação.
  */
 const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbyUFMrUNTG8LqR1Qz78lkfdRDrv9l1WjdR_onxbuuzHCELHwopuQJDvawdZMkRxxedlMQ/exec";
-const WHATSAPP_GROUP_LINK = "https://chat.whatsapp.com/SEU_LINK_AQUI";
+const WHATSAPP_GROUP_LINK = "https://chat.whatsapp.com/BtAbBjjIfAI4YzpMGAEpo6";
 
 
 function initVipForm() {
