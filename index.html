@@ -461,6 +461,11 @@
     <script src="js/main.js"></script>
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Redirecionamento automático para a página de obrigado após 3 segundos
+      setTimeout(() => {
+        window.location.href = 'obrigado.html';
+      }, 3000);
     </script>
   </body>
 </html>
