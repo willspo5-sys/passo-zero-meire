@@ -530,10 +530,10 @@ a:hover {
 }
 .vertical-video-wrapper iframe {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: -65px; /* Esconde a barra de título/canal do YouTube no topo */
+  left: -2%;
+  width: 104%; /* Leve zoom para disfarçar as bordas e manter preenchido */
+  height: calc(100% + 65px); /* Ajusta a altura compensando o deslocamento */
   border: 0;
 }
 
